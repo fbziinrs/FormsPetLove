@@ -46,14 +46,15 @@ namespace FormsPetLove
             {
                 var textoLido = File.ReadAllText(caminho);
                 MessageBox.Show(textoLido.GetType().ToString());
+                
                 string[] Linhas = textoLido.Split('\n');
-
                 for (int i = 0; i < Linhas.Length; i = i + 4)
                 {
                     string nome = Linhas[i];
-                    int idade = int.Parse(Linhas[i + 1].ToString());
-                    string raca = Linhas[i + 2].ToString();
-                    string tipo = Linhas[i + 3].ToString();
+                    string tipo = Linhas[i + 1];
+                    string raca = Linhas[i + 2];
+                    int idade = int.Parse(Linhas[i + 3].Trim());
+
                     Pet novopet = new Pet(nome, idade, raca, tipo);
                     lboDados.Items.Add(novopet);
                 }
@@ -140,6 +141,11 @@ namespace FormsPetLove
             salvandoArquivo.WriteLine(texto);
             salvandoArquivo.Close();
             abrirArquivo.Close();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

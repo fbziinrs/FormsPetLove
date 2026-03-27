@@ -39,9 +39,23 @@ namespace FormsPetLove
         private void btnAtualizar_Click(object sender, EventArgs e)
         {
             string nome = txtNome.Text;
+
+            if (string.IsNullOrWhiteSpace(txtIdade.Text))
+            {
+                txtIdade.Text = "0";
+            }
+
+            if (!txtIdade.Text.All(char.IsDigit))
+            {
+                MessageBox.Show("A idade deve conter apenas números!");
+                return;
+            }
+
             int idade = int.Parse(txtIdade.Text);
-            string raca = txtRaça.Text; 
+
+            string raca = txtRaça.Text;
             string tipo = cboTipo.Text;
+
             if (__pet == null)
             {
                 __pet = new Pet(nome, idade, raca, tipo);
