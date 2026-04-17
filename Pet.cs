@@ -29,7 +29,7 @@ namespace FormsPetLove
         }
         public string Tipo
         {
-            get { return __Tipo; }
+            get { return __Tipo; }bbbb
         }
 
         public Pet(string nome, int idade, string raca, string tipo)
